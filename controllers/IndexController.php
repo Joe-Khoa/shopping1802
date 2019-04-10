@@ -9,5 +9,10 @@ class IndexController extends Controller{
     }
 }
 
+/**
+ * create route
+ * code controller
+ * call view
+ */
 
 ?>
