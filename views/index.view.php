@@ -4,6 +4,12 @@
         <div class="tp-banner">
           <ul>
             <!-- SLIDE 1 -->
+
+            <?php
+            // print_r($data);
+            // die;
+            
+            ?>
             <li data-transition="slidehorizontal" data-slotamount="5" data-masterspeed="700">
               <!-- MAIN IMAGE -->
               <img src="public/images/slider/slider-img1.jpg" alt="slidebg1" data-bgfit="cover" data-bgposition="center center" data-bgrepeat="no-repeat">

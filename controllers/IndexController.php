@@ -7,11 +7,11 @@ class IndexController extends Controller{
     function getHomePage(){
         $model = new IndexModel();
         $slides = $model->getSlide();
-
-        print_r($slides);
-        die;
-
-        return parent::loadView('index');
+        //
+        $data = [
+            'slides'=>$slides,
+        ];
+        return parent::loadView('index',$data);
     }
 
 }
