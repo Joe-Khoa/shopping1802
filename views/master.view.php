@@ -728,32 +728,22 @@
     <!-- End Footer -->
 
   </div>
-
-
   <!-- JS -->
-
   <!-- jquery js -->
   <script type="text/javascript" src="public/js/jquery.min.js"></script>
-
   <!-- bootstrap js -->
   <script type="text/javascript" src="public/js/bootstrap.min.js"></script>
-
-
   <!-- owl.carousel.min js -->
   <script type="text/javascript" src="public/js/owl.carousel.min.js"></script>
-
   <!-- bxslider js -->
   <script type="text/javascript" src="public/js/jquery.bxslider.js"></script>
-
   <!-- Slider Js -->
   <script type="text/javascript" src="public/js/revolution-slider.js"></script>
-
   <!-- megamenu js -->
   <script type="text/javascript" src="public/js/megamenu.js"></script>
   <script type="text/javascript">
     /* <![CDATA[ */
     var mega_menu = '0';
-
   /* ]]> */
   </script>
 
@@ -778,21 +768,18 @@
           startwidth: 1170,
           startheight: 530,
           hideThumbs: 10,
-
           navigationType: "bullet",
           navigationStyle: "preview1",
-
           hideArrowsOnMobile: "on",
-
           touchenabled: "on",
           onHoverStop: "on",
           spinner: "spinner4"
         });
     });
   </script>
-
-
-
+  <script>
+    $('.mega-menu-category').hide()
+  </script>
 </body>
 
 </html>

@@ -5,5 +5,4 @@ $c = new ShoppingCartController;
 return $c->getCheckoutView();
 
 
-
 ?>
