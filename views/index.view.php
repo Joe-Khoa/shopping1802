@@ -66,32 +66,45 @@
                               <div class="pr-img-area">
                                 <a title="Ipsums Dolors Untra" href="single_product.html">
                                   <figure>
-                                    <img class="first-img" src="public/products/<?=$product->image?>" alt="html template">
-                                    <img class="public/products/<?=$product->image?>" alt="html template">
+                                    <img height="300px" class="first-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
+                                    <img height="300px" class="hover-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
                                   </figure>
                                 </a>
                                 <button type="button" class="add-to-cart-mt">
                                   <i class="fa fa-shopping-cart"></i>
-                                  <span> Add to Cart</span>
+                                  <span> Chọn Mua</span>
                                 </button>
                               </div>
                             </div>
                             <div class="item-info">
                               <div class="info-inner">
                                 <div class="item-title">
-                                  <a title="Ipsums Dolors Untra" href="single_product.html">Ipsums Dolors Untra </a>
+                                  <a title="<?=$product->name?>" href="single_product.html">
+                                    <?=$product->name?>
+                                  </a>
                                 </div>
                                 <div class="item-content">
                                   <div class="item-price">
                                     <div class="price-box">
+                                      <?php if($product->promotion_price==0):?>
                                       <p class="special-price">
-                                        <span class="price-label">Special Price</span>
-                                        <span class="price"> $9.00 </span>
+                                        <span class="price">
+                                          <?=number_format($product->price)?> vnd
+                                        </span>
+                                      </p>
+                                      <?php else:?>
+                                      <p class="special-price">
+                                        <span class="price"> 
+                                        <?=number_format($product->promotion_price)?>
+                                        vnd </span>
                                       </p>
                                       <p class="old-price">
-                                        <span class="price-label">Regular Price:</span>
-                                        <span class="price"> $119.00 </span>
+                                        <span class="price">
+                                        <?=number_format($product->price) ?> vnd
+                                        </span>
                                       </p>
+                                      <?php endif?>
+                                      
                                     </div>
                                   </div>
                                 </div>
