@@ -7,9 +7,12 @@ class IndexController extends Controller{
     function getHomePage(){
         $model = new IndexModel();
         $slides = $model->getSlide();
-        //
+        $specialProducts = $model->getSpecialProducts();
+        // print_r($specialProducts);
+        // die;
         $data = [
             'slides'=>$slides,
+            'specialProducts'=>$specialProducts
         ];
         return parent::loadView('index',$data);
     }
