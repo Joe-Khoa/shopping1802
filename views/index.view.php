@@ -47,11 +47,11 @@
             <div class="home-tab">
               <ul class="nav home-nav-tabs home-product-tabs">
                 <li class="active">
-                  <a href="#featured" data-toggle="tab" aria-expanded="false">Featured products</a>
+                  <a href="#featured" data-toggle="tab" aria-expanded="false">Sản phẩm nổi bật</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                  <a href="#top-sellers" data-toggle="tab" aria-expanded="false">Top Sellers</a>
+                  <a href="#top-sellers" data-toggle="tab" aria-expanded="false">Bán chạy</a>
                 </li>
               </ul>
               <div id="productTabContent" class="tab-content">
@@ -557,7 +557,7 @@
         <div class="row">
           <div class="col-md-4 col-sm-6">
             <div class="jtv-single-cat">
-              <h2 class="cat-title">Best Seller</h2>
+              <h2 class="cat-title">Sản phẩm khuyến mãi</h2>
               <div class="jtv-product">
                 <div class="product-img">
                   <a href="single_product.html">
