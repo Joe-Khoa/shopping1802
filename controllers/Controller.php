@@ -1,7 +1,7 @@
 <?php
 
 class Controller{
-    public function loadView(string $view="index", array $data=[]){
+    public function loadView(string $view="index", string $title='Home', array $data=[]){
         require_once "views/master.view.php";
     }
 }

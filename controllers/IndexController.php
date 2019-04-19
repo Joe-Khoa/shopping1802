@@ -8,13 +8,13 @@ class IndexController extends Controller{
         $model = new IndexModel();
         $slides = $model->getSlide();
         $specialProducts = $model->getSpecialProducts();
-        // print_r($specialProducts);
-        // die;
+        $bestSellerProducts = $model->getBestSellerProducts();
         $data = [
             'slides'=>$slides,
-            'specialProducts'=>$specialProducts
+            'specialProducts'=>$specialProducts,
+            'bestSellerProducts'=>$bestSellerProducts
         ];
-        return parent::loadView('index',$data);
+        return parent::loadView('index','Trang chủ',$data);
     }
 
 }
