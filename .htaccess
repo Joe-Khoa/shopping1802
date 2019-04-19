@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule ^([a-zA-Z0-9-()]+)-([0-9]+).html$ product.php?url=$1&id=$2
+
+# iphone-x-64gb-2.html
+
+RewriteRule ^lien-he.html$ contact.php
+
+#regex regular expression
