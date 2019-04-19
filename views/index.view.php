@@ -69,7 +69,7 @@
                               <div class="icon-new-label new-right">New</div>
                               <?php endif?>
                               <div class="pr-img-area">
-                                <a title="<?=$product->name?>" href="single_product.html">
+                                <a title="<?=$product->name?>" href="<?=$product->url?>-<?=$product->id?>.html">
                                   <figure>
                                     <img height="300px" class="first-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
                                     <img height="300px" class="hover-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
@@ -84,7 +84,7 @@
                             <div class="item-info">
                               <div class="info-inner">
                                 <div class="item-title">
-                                  <a title="<?=$product->name?>" href="single_product.html">
+                                  <a title="<?=$product->name?>" href="<?=$product->url?>-<?=$product->id?>.html">
                                     <?=$product->name?>
                                   </a>
                                 </div>
@@ -143,7 +143,7 @@
                               <div class="icon-new-label new-right">New</div>
                               <?php endif?>
                               <div class="pr-img-area">
-                                <a title="<?=$product->name?>" href="single_product.html">
+                                <a title="<?=$product->name?>" href="<?=$product->url?>-<?=$product->id?>.html">
                                   <figure>
                                     <img height="300px" class="first-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
                                     <img height="300px" class="hover-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
@@ -158,7 +158,7 @@
                             <div class="item-info">
                               <div class="info-inner">
                                 <div class="item-title">
-                                  <a title="<?=$product->name?>" href="single_product.html">
+                                  <a title="<?=$product->name?>" href="<?=$product->url?>-<?=$product->id?>.html">
                                     <?=$product->name?>
                                   </a>
                                 </div>
@@ -192,7 +192,7 @@
                           </div>
                         </div>
                       <?php endforeach ?>
-                      
+
                     </div>
                   </div>
                 </div>

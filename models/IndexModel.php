@@ -18,7 +18,7 @@ class IndexModel extends DBConnect{
         return $this->getMoreRow($sql);
     }
     function getBestSellerProducts(){
-        $sql = "SELECT p.*, sum(d.quantity) as tongSL
+        $sql = "SELECT p.*, pu.url, sum(d.quantity) as tongSL
                 FROM products p
                 INNER JOIN bill_detail d
                 ON p.id = d.id_product
