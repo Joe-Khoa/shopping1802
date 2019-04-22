@@ -11,10 +11,11 @@ class ProductController extends Controller{
             $product = $model->getProductDetail($url,$id);
             // print_r($product);die;
             if($product){
-                //load view
+                $relatedProducts = $model->getRelatedProduct($product->id_type,$product->id);
                 $title = $product->name;
                 $data = [
                     'product'=>$product,
+                    'relatedProducts'=>$relatedProducts
                 ];
                 return parent::loadView('product',$title,$data);
             }
