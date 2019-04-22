@@ -21,16 +21,13 @@
                   if($data['product']->promotion_price!=0):
                   ?>
                   <p class="special-price">
-                    <span class="price-label">Special Price</span>
                     <span class="price"> <?=number_format($data['product']->promotion_price)?> VND</span>
                   </p>
                   <p class="old-price">
-                    <span class="price-label">Regular Price:</span>
                     <span class="price"> <?=number_format($data['product']->price)?> VND </span>
                   </p>
                   <?php else:?>
                     <p class="special-price">
-                      <span class="price-label">Special Price</span>
                       <span class="price"> <?=number_format($data['product']->price)?> VND </span>
                     </p>
                   <? endif?>
@@ -81,7 +78,7 @@
           <div class="col-xs-12">
 
             <div class="page-header">
-              <h2>Related Products</h2>
+              <h2>Sản phẩm cùng loại</h2>
             </div>
             <div class="slider-items-products">
               <div id="upsell-product-slider" class="product-flexslider hidden-buttons">

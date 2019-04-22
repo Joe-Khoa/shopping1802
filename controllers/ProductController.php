@@ -9,6 +9,7 @@ class ProductController extends Controller{
             $id = $_GET['id']; // 105
             $model = new ProductModel;
             $product = $model->getProductDetail($url,$id);
+            // print_r($product);die;
             if($product){
                 //load view
                 $title = $product->name;
