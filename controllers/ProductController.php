@@ -14,7 +14,6 @@ class ProductController extends Controller{
                 $title = $product->name;
                 $data = [
                     'product'=>$product,
-                    
                 ];
                 return parent::loadView('product',$title,$data);
             }

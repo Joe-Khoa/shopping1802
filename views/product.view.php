@@ -7,43 +7,46 @@
               <div class="product-big-image col-xs-12 col-sm-5 col-lg-5 col-md-5">
                 <div class="icon-sale-label sale-left">Sale</div>
                 <div class="large-image">
-                  <a href="public/images/products/img03.jpg" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
-                    <img class="zoom-img" src="public/images/products/img03.jpg" alt="products"> </a>
+                  <a href="public/products/<?=$data['product']->image?>" class="cloud-zoom" id="zoom1" rel="useWrapper: false, adjustY:0, adjustX:20">
+                    <img width="100%" class="zoom-img" src="public/products/<?=$data['product']->image?>" alt="products"> </a>
                 </div>
               </div>
               <div class="col-xs-12 col-sm-7 col-lg-7 col-md-7 product-details-area">
 
                 <div class="product-name">
-                  <h1>Lorem Ipsum is simply</h1>
+                  <h1><?=$data['product']->name?></h1>
                 </div>
                 <div class="price-box">
+                  <?php
+                  if($data['product']->promotion_price!=0):
+                  ?>
                   <p class="special-price">
                     <span class="price-label">Special Price</span>
-                    <span class="price"> $329.99 </span>
+                    <span class="price"> <?=number_format($data['product']->promotion_price)?> VND</span>
                   </p>
                   <p class="old-price">
                     <span class="price-label">Regular Price:</span>
-                    <span class="price"> $359.99 </span>
+                    <span class="price"> <?=number_format($data['product']->price)?> VND </span>
                   </p>
+                  <?php else:?>
+                    <p class="special-price">
+                      <span class="price-label">Special Price</span>
+                      <span class="price"> <?=number_format($data['product']->price)?> VND </span>
+                    </p>
+                  <? endif?>
                 </div>
 
                 <div class="short-description">
-                  <h2>Quick Overview</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor.
-                    Donec non est at libero vulputate rutrum.
-                    <p> Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti
-                      sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere
-                      at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque
-                      in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus. Mauris vel tellus non nunc mattis
-                      lobortis.
-                    </p>
-
+                  <h2>Chi tiết sản phẩm</h2>
+                  <div>
+                    <?=$data['product']->detail;?>
+                  </div>
                 </div>
 
                 <div class="product-variation">
                   <form action="#" method="post">
                     <div class="cart-plus-minus">
-                      <label for="qty">Quantity:</label>
+                      <label for="qty">Số lượng:</label>
                       <div class="numbers-row">
                         <div   class="dec qtybutton">
                           <i class="fa fa-minus">&nbsp;</i>
