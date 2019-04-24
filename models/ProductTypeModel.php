@@ -12,6 +12,17 @@ class ProductTypeModel extends DBConnect{
                 WHERE c.status=1";// 1: show
         return $this->getMoreRow($sql);
     }
+    function getCategoriesWithProductCount(){
+        // count product by type
+        // LEFT JOIN if select soluong=0
+        $sql = "SELECT c.id, c.name, 
+                    count(p.id) as soluong
+                FROM categories c
+                INNER JOIN products p 
+                ON c.id = p.id_type
+                GROUP BY c.id";
+        return $this->getMoreRow($sql);
+    }
 }
 
 ?>
