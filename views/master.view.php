@@ -9,6 +9,7 @@
   <title>
     <?=$title?>
   </title>
+  <base href="http://localhost/shopping1802/">
   <!-- Mobile specific metas  , -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
