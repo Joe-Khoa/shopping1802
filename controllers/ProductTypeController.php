@@ -27,7 +27,8 @@ class ProductTypeController extends Controller{
             
             $data = [
                 'leftCategories'=>$leftCategories,
-                'productByType'=>$productByType
+                'productByType'=>$productByType,
+                'title'=>$title
             ];
             return parent::loadView('product-type',$title,$data);
         }
