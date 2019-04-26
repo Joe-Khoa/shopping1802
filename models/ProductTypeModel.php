@@ -23,6 +23,15 @@ class ProductTypeModel extends DBConnect{
                 GROUP BY c.id";
         return $this->getMoreRow($sql);
     }
+    function getProductTypeByUrl($url){
+        $sql = "SELECT c.*
+                FROM categories c
+                INNER JOIN page_url u
+                ON c.id_url = u.id
+                WHERE u.url = '$url'
+                AND c.status = 1";
+        return $this->getMoreRow($sql);
+    }
 }
 
 ?>
