@@ -32,6 +32,19 @@ class ProductTypeModel extends DBConnect{
                 AND c.status = 1";
         return $this->getOneRow($sql);
     }
+    function getProductByType($idType, $position=0, $quantity=0){
+        $sql = "SELECT p.*, u.url
+                FROM products p
+                INNER JOIN page_url u
+                ON p.id_url = u.id
+                WHERE p.id_type = $idType
+                LIMIT $position,$quantity";
+        return $this->getMoreRow($sql);
+        // page = 1 => 0,10
+        // page = 2 => 10,10
+        // page = 3 => 20,10
+        // page = n => (page-1)*10
+    }
 }
 
 ?>
