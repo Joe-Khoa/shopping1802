@@ -30,7 +30,7 @@ class ProductTypeModel extends DBConnect{
                 ON c.id_url = u.id
                 WHERE u.url = '$url'
                 AND c.status = 1";
-        return $this->getMoreRow($sql);
+        return $this->getOneRow($sql);
     }
 }
 

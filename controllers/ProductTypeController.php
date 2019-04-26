@@ -4,14 +4,25 @@ require_once 'models/ProductTypeModel.php';
 
 class ProductTypeController extends Controller{
     function loadProductType(){
+        if(!isset($_GET['url'])){
+            header('Location:home'); // home ~ index.php
+            return;
+        }
         $model = new ProductTypeModel;
-        $leftCategories = $model->getCategoriesWithProductCount();
-
-        $title = '...'; // not yet
-        $data = [
-            'leftCategories'=>$leftCategories
-        ];
-        return parent::loadView('product-type',$title,$data);
+        $url = $_GET['url'];
+        $type = $model->getProductTypeByUrl($url);
+        if($type){
+            $title = $type->name;
+            $leftCategories = $model->getCategoriesWithProductCount();
+            $data = [
+                'leftCategories'=>$leftCategories
+            ];
+            return parent::loadView('product-type',$title,$data);
+        }
+        else{
+            echo '404';
+        }
+        
     }
 }
 
