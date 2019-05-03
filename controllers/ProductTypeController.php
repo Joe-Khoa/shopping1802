@@ -24,11 +24,13 @@ class ProductTypeController extends Controller{
             $tongSP = ($model->countProductByType($type->id))->tongSP;
             $sotrangHienthi = 5;
             $pager = new Pager($tongSP,$page,$quantity,$sotrangHienthi);
-            
+            $paginateHtml = $pager->showPagination();
+
             $data = [
                 'leftCategories'=>$leftCategories,
                 'productByType'=>$productByType,
-                'title'=>$title
+                'title'=>$title,
+                'paginateHtml'=>$paginateHtml
             ];
             return parent::loadView('product-type',$title,$data);
         }
