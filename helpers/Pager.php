@@ -9,7 +9,7 @@ class Pager{
 	/**
 	 * set up value for properties
 	 */
-	public function __construct($totalItem,$currentPage = 1,$nItemOnPage = 5,$nPageShow = 5){
+	public function __construct(int $totalItem, int $currentPage = 1,$nItemOnPage = 5,$nPageShow = 5){
 		$this->_totalItem 	= $totalItem;
 		$this->_nItemOnPage	= $nItemOnPage;
 		if ($nPageShow%2==0) {
@@ -19,7 +19,7 @@ class Pager{
 		$this->_currentPage = abs($currentPage);
 		$this->_totalPage  	= ceil($totalItem/$nItemOnPage);  
 	}
-	
+
 	public function showPagination(){
         $paginationHTML 	= '';
 		if($this->_totalPage > 1){

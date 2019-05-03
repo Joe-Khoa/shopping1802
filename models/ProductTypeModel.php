@@ -38,12 +38,20 @@ class ProductTypeModel extends DBConnect{
                 INNER JOIN page_url u
                 ON p.id_url = u.id
                 WHERE p.id_type = $idType
+                AND p.deleted = 0
                 LIMIT $position,$quantity";
         return $this->getMoreRow($sql);
         // page = 1 => 0,10
         // page = 2 => 10,10
         // page = 3 => 20,10
         // page = n => (page-1)*10
+    }
+    function countProductByType($idType){
+        $sql = "SELECT count(p.id) as tongSP
+                FROM products p
+                WHERE id_type=$idType
+                AND deleted=0";
+        return $this->getOneRow($sql);
     }
 }
 

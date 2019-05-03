@@ -1,6 +1,7 @@
 <?php
 require_once 'Controller.php';
 require_once 'models/ProductTypeModel.php';
+require_once 'helpers/Pager.php';
 
 class ProductTypeController extends Controller{
     function loadProductType(){
@@ -15,15 +16,14 @@ class ProductTypeController extends Controller{
             $title = $type->name;
             $leftCategories = $model->getCategoriesWithProductCount();
 
-            // $page = 1;
-            // if(isset($_GET['page'])){
-            //     $page = $_GET['page'];
-            // }
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             $quantity = 9;
             $position = ($page-1)*$quantity;
             $productByType = $model->getProductByType($type->id,$position,$quantity); 
-            // print_r($productByType);die;
+
+            $tongSP = ($model->countProductByType($type->id))->tongSP;
+            $sotrangHienthi = 5;
+            $pager = new Pager($tongSP,$page,$quantity,$sotrangHienthi);
             
             $data = [
                 'leftCategories'=>$leftCategories,
