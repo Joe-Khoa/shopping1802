@@ -43,4 +43,23 @@ class ProductTypeController extends Controller{
 }
 
 
+/**
+ * tongsp      = 350
+ * sp/trang    = 10
+ * => tong so trang = ceil(35/10) = 35
+ * 
+ * tranghientai      = 14 = x
+ * sotranghienthi    = 11 = y
+ * 
+ * 
+ * trang dau tien       = 9 = 14 - (11-1)/2 = x - (y-1)/2
+ * trang cuoi           = 19 = x + (y-1)/2 = 9 + 11-1
+ */
+
+
+// 14 = (9+19)/2
+// 14 = (9+9+11-1)/2
+// => 14.2 = 2.9 + (11-1)
+// => 9 = (14.2-(11-1))/2 = 14 - (11-1)/2
+// 19 = 14 + (11-1)/2
 ?>

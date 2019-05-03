@@ -1,11 +1,14 @@
 <?php
 class Pager{
-	private $_totalItem;     
-	private $_nItemOnPage; 
-	private $_nPageShow ;  
-	private $_totalPage;   
-    private $_currentPage;
-    
+	private $_totalItem; // tongsp 
+	private $_nItemOnPage; // sp/trang
+	private $_nPageShow ;  //sotranghienthi
+	private $_totalPage;   // tong so trang
+    private $_currentPage; // tranghientai
+	
+	/**
+	 * set up value for properties
+	 */
 	public function __construct($totalItem,$currentPage = 1,$nItemOnPage = 5,$nPageShow = 5){
 		$this->_totalItem 	= $totalItem;
 		$this->_nItemOnPage	= $nItemOnPage;
@@ -16,26 +19,33 @@ class Pager{
 		$this->_currentPage = abs($currentPage);
 		$this->_totalPage  	= ceil($totalItem/$nItemOnPage);  
 	}
+	
 	public function showPagination(){
         $paginationHTML 	= '';
 		if($this->_totalPage > 1){
+
+			//http://localhost/shopping1802/phu-kien/page=4
 			$actual_link = ($_SERVER['REQUEST_SCHEME']=='http' ? "http" : "https") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-			$actual_link = explode('/page/', $actual_link)[0];
+
+			//http://localhost/shopping1802/phu-kien
+			$actual_link = explode('/page=', $actual_link)[0];
             
-			$start 	= '';
-			$prev 	= '';
+			$start 	= ''; // bat dau = 1
+			$prev 	= ''; // trang truoc 
 			if($this->_currentPage > 1){
-                $start 	= "<li><a href='$actual_link/page/1'>Start</a></li>";
-				$prev 	= "<li><a href='$actual_link/page/".($this->_currentPage-1)."'>«</a></li>";
+                $start 	= "<li><a href='$actual_link/page=1'>Start</a></li>";
+				$prev 	= "<li><a href='$actual_link/page=".($this->_currentPage-1)."'>«</a></li>";
             }
             
-			$next 	= '';
-			$end 	= '';
+			$next 	= ''; // trang tiep theo
+			$end 	= ''; // trang cuoi cung
 			if($this->_currentPage < $this->_totalPage){
-				$next 	= "<li><a href='$actual_link/page/".($this->_currentPage+1)."'>»</a></li>";
-				$end 	= "<li><a href='$actual_link/page/".$this->_totalPage."'>End</a></li>";
+				$next 	= "<li><a href='$actual_link/page=".($this->_currentPage+1)."'>»</a></li>";
+				$end 	= "<li><a href='$actual_link/page=".$this->_totalPage."'>End</a></li>";
 			}
 		
+			$startPage		= 1;
+			$endPage		= $this->_totalPage;
 			if($this->_nPageShow < $this->_totalPage){
 				if($this->_currentPage == 1 ){
 					$startPage 	= 1;
@@ -49,7 +59,7 @@ class Pager{
 					$startPage		= $this->_currentPage - ($this->_nPageShow-1)/2;
 					$endPage		= $this->_currentPage + ($this->_nPageShow-1)/2;
 					if($startPage < 1){
-						$endPage	= $endPage + 1;  //
+						$endPage	= $endPage + 1; 
 						$startPage 	= 1; 
 					}
 					if($endPage > $this->_totalPage){
@@ -58,10 +68,6 @@ class Pager{
 					}
 				}
 			}
-			else{
-				$startPage		= 1;
-				$endPage		= $this->_totalPage;
-			}
 			$listPages = '';
 			
 			for($i = $startPage; $i <= $endPage; $i++){
@@ -69,7 +75,7 @@ class Pager{
 					$listPages .= "<li><a class='active' href='#'>".$i.'</a>';
 				}
 				else{
-					$listPages .= "<li><a href='$actual_link/page/".$i."'>".$i.'</a>';
+					$listPages .= "<li><a href='$actual_link/page=".$i."'>".$i.'</a>';
 				}
 			}
 			$paginationHTML = '<ul>'.$start.$prev.$listPages.$next.$end.'</ul>';
