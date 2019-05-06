@@ -38,8 +38,9 @@ class ProductTypeModel extends DBConnect{
                 INNER JOIN page_url u
                 ON p.id_url = u.id
                 WHERE p.id_type = $idType
-                AND p.deleted = 0
-                LIMIT $position,$quantity";
+                AND p.deleted = 0";
+        if($position!=-1 && $quantity!=-1)
+            $sql .= " LIMIT $position,$quantity";
         return $this->getMoreRow($sql);
         // page = 1 => 0,10
         // page = 2 => 10,10
