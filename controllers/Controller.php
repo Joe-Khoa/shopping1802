@@ -9,6 +9,10 @@ class Controller{
         require_once "views/master.view.php";
 
     }
+
+    function loadViewAjax($view, $data=[]){
+        require_once "views/ajax/$view.view.php";
+    }
 }
 
 

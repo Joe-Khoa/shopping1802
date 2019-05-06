@@ -20,6 +20,7 @@ class ProductTypeModel extends DBConnect{
                 FROM categories c
                 INNER JOIN products p 
                 ON c.id = p.id_type
+                WHERE p.deleted=0
                 GROUP BY c.id";
         return $this->getMoreRow($sql);
     }
