@@ -251,12 +251,15 @@
 $('.my-class').click(function(){
   var id = $(this).attr('data-id')
   $.ajax({
-    url: '',
-    type: 'POST'
+    url: 'product-type.php',
+    type: 'POST',
     data: { id }, // $_POST['id']
     success: function(response){
       // response: nhan data tu php gui ve
       console.log(response)
+    },
+    error: function(err){
+      console.log(err.message)
     }
   })
 })

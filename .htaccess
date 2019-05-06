@@ -9,7 +9,7 @@ RewriteRule ^lien-he.html$ contact.php
 RewriteRule ^home$ index.php
 RewriteRule ^404.html$ 404.error.php
 
-ErrorDocument 404 /shopping1802/404.error.php
+# ErrorDocument 404 /shopping1802/404.error.php
 
 
 
