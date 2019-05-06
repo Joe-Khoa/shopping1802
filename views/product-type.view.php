@@ -250,6 +250,14 @@
 <script>
 $('.my-class').click(function(){
   var id = $(this).attr('data-id')
-  console.log(id)
+  $.ajax({
+    url: '',
+    type: 'POST'
+    data: { id }, // $_POST['id']
+    success: function(response){
+      // response: nhan data tu php gui ve
+      console.log(response)
+    }
+  })
 })
 </script>
