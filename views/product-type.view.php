@@ -90,12 +90,12 @@
                 <div class="layered-Category">
                   <h2 class="saider-bar-title">Categories</h2>
                   <div class="layered-content">
-                    <ul class="check-box-list">
+                    <ul class="check-box-list" >
                       <?php foreach($data['leftCategories'] as $item):?>
                       <li>
                         <input type="checkbox" 
                         id="jtv<?=$item->id?>" name="jtvc">
-                        <label for="jtv<?=$item->id?>">
+                        <label for="jtv<?=$item->id?>" class="my-class" data-id="<?=$item->id?>">
                           <span class="button"></span> <?=$item->name?>
                           <span class="count">(<?=$item->soluong?>)</span>
                         </label>
@@ -246,3 +246,10 @@
       </div>
     </div>
     <!-- Main Container End -->
+
+<script>
+$('.my-class').click(function(){
+  var id = $(this).attr('data-id')
+  console.log(id)
+})
+</script>
