@@ -271,7 +271,6 @@ $('.my-class').click(function(){
           $('.products-grid').html(response) // replace
           $('.products-grid').addClass('appended')
         }
-        $('.products-grid').addClass('products-'+id)
       },
       error: function(err){
         console.log(err.message)
@@ -279,7 +278,8 @@ $('.my-class').click(function(){
     })
   }
   else{
-    if($('.products-grid').hasClass('appended')){
+    $('.product-'+id).remove()
+    if($('.products-grid').find('li').length == 0){
       $('.products-grid').html(oldData)
       $('.page-title').show()
       $('.pagination-area').html(paginate)
