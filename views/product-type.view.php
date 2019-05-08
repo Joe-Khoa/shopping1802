@@ -248,6 +248,8 @@
     <!-- Main Container End -->
 
 <script>
+var oldData = $('.products-grid').html(); // get data
+var paginate = $('.pagination-area').html();
 $('.my-class').click(function(){
   var id = $(this).attr('data-id')
   //check input checked
@@ -263,17 +265,26 @@ $('.my-class').click(function(){
         $('.pagination-area').html('')
         
         if($('.products-grid').hasClass('appended')){
-          $('.products-grid').append(response) // add
+          $('.products-grid').append(response) // add 
         } 
         else{
           $('.products-grid').html(response) // replace
           $('.products-grid').addClass('appended')
         }
+        $('.products-grid').addClass('products-'+id)
       },
       error: function(err){
         console.log(err.message)
       }
     })
+  }
+  else{
+    if($('.products-grid').hasClass('appended')){
+      $('.products-grid').html(oldData)
+      $('.page-title').show()
+      $('.pagination-area').html(paginate)
+      $('.products-grid').removeClass('appended')
+    }
   }
   
 })
