@@ -260,6 +260,9 @@ $('.my-class').click(function(){
       success: function(response){
         // response: nhan data tu php gui ve
         $('.products-grid').html(response)
+        $('.page-title').hide()
+        $('.pagination-area').hide()
+        // $('.product-grid-area').css('min-height','300px')
       },
       error: function(err){
         console.log(err.message)

@@ -3,7 +3,6 @@
     <div class="product-item">
         <div class="item-inner">
             <div class="product-thumbnail">
-
                 <div class="pr-img-area">
                     <a title="<?=$p->name?>" href="<?=$p->url?>-<?=$p->id?>.html">
                         <figure>
