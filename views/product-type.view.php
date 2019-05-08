@@ -259,7 +259,7 @@ $('.my-class').click(function(){
       data: { id }, // $_POST['id']
       success: function(response){
         // response: nhan data tu php gui ve
-        console.log(response)
+        $('.products-grid').html(response)
       },
       error: function(err){
         console.log(err.message)

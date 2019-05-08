@@ -46,7 +46,7 @@ class ProductTypeController extends Controller{
         $id = $_POST['id'];
         $model = new ProductTypeModel();
         $products = $model->getProductByType($id,-1,-1);
-        return $this->loadViewAjax('product-item');
+        return $this->loadViewAjax('product-item',$products);
         // print_r(count($products));
     }
 }
