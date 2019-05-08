@@ -259,10 +259,16 @@ $('.my-class').click(function(){
       data: { id }, // $_POST['id']
       success: function(response){
         // response: nhan data tu php gui ve
-        $('.products-grid').html(response)
         $('.page-title').hide()
-        $('.pagination-area').hide()
-        // $('.product-grid-area').css('min-height','300px')
+        $('.pagination-area').html('')
+        
+        if($('.products-grid').hasClass('appended')){
+          $('.products-grid').append(response) // add
+        } 
+        else{
+          $('.products-grid').html(response) // replace
+          $('.products-grid').addClass('appended')
+        }
       },
       error: function(err){
         console.log(err.message)
