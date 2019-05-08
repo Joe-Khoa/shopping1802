@@ -94,8 +94,8 @@
                       <?php foreach($data['leftCategories'] as $item):?>
                       <li>
                         <input type="checkbox" 
-                        id="jtv<?=$item->id?>" name="jtvc">
-                        <label for="jtv<?=$item->id?>" class="my-class" data-id="<?=$item->id?>">
+                        id="jtv<?=$item->id?>" name="jtvc" class="my-class" data-id="<?=$item->id?>">
+                        <label for="jtv<?=$item->id?>" >
                           <span class="button"></span> <?=$item->name?>
                           <span class="count">(<?=$item->soluong?>)</span>
                         </label>
@@ -250,17 +250,22 @@
 <script>
 $('.my-class').click(function(){
   var id = $(this).attr('data-id')
-  $.ajax({
-    url: 'product-type.php',
-    type: 'POST',
-    data: { id }, // $_POST['id']
-    success: function(response){
-      // response: nhan data tu php gui ve
-      console.log(response)
-    },
-    error: function(err){
-      console.log(err.message)
-    }
-  })
+  //check input checked
+  var checked = $(this).prop('checked')
+  if(checked){
+    $.ajax({
+      url: 'product-type.php',
+      type: 'POST',
+      data: { id }, // $_POST['id']
+      success: function(response){
+        // response: nhan data tu php gui ve
+        console.log(response)
+      },
+      error: function(err){
+        console.log(err.message)
+      }
+    })
+  }
+  
 })
 </script>
