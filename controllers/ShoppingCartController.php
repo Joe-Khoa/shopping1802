@@ -28,7 +28,13 @@ class ShoppingCartController extends Controller{
         $cart = new Cart($oldCart);
         $cart->add($product,1);
         $_SESSION['cart'] = $cart;
-        print_r($cart);
+        $r = [
+            'error'=> 0,
+            'data'=> $cart,
+            'message'=>'Add to cart successfully!'
+        ];
+        echo json_encode($r);
+        return true;
     }
     function deleteCart(){
 

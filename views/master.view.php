@@ -286,6 +286,7 @@
             id: id,
             action: 'add'
           },
+          dataType: 'json',
           success: function(response){
             console.log(response)
           },
