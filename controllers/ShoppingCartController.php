@@ -8,7 +8,12 @@ class ShoppingCartController extends Controller{
     function getCheckoutView(){
         return parent::loadView('checkout');
     }
-    
+    function addToCart(){
+        echo $_POST['id'];
+    }
+    function deleteCart(){
+        
+    }
 }
 
 

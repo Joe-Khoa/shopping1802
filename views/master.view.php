@@ -277,7 +277,23 @@
     $('.mega-menu-category').hide()
   </script>
   <script>
-    
+    $('.add-to-cart-mt').click(function(){
+        var id = $(this).attr('data-id')
+        $.ajax({
+          url: 'cart.php',
+          type: 'POST',
+          data: { 
+            id: id,
+            action: 'add'
+          },
+          success: function(response){
+            console.log(response)
+          },
+          error: function(error){
+            console.log(error)
+          }
+        })
+    })
   </script>
 </body>
 
