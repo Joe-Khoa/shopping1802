@@ -1,5 +1,6 @@
 <?php
 require_once 'Controller.php';
+require_once 'models/ShoppingCartModel.php';
 
 class ShoppingCartController extends Controller{
     function getShoppingCartView(){
@@ -9,7 +10,9 @@ class ShoppingCartController extends Controller{
         return parent::loadView('checkout');
     }
     function addToCart($id){
-        echo 'id='.$id;
+        $model = new ShoppingCartModel;
+        $product = $model->findProductById($id);
+        print_r($product);
     }
     function deleteCart(){
 
