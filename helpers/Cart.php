@@ -14,27 +14,8 @@ class Cart{
 			$this->promtPrice = $oldCart->promtPrice;
 		}
 	}
-	/**
-	 * totalQty: 3,
-	 * totalPrice: 60,
-	 * promtPrice: 56,
-	 * items [
-	 * 		8=>[
-	 * 				qty: 1,
-	 * 				price: 20,
-	 * 				promotionPrice: 20,
-	 * 				item: {name, image, id = 8....}
-	 * 		],
-	 * 		10=>[
-	 * 				qty: 2,
-	 * 				price: 40,
-	 * 				promotionPrice: 36 = 18*2,
-	 * 				item: {price: 20, promotion_price: 18, image, id=10....}
-	 * 		],
-	 * 	
-	 * ]
-	 */
-	public function add($product, $qty=1){ 
+
+	public function add($product, $qty=1){
 		if($product->promotion_price == 0){
 			$product->promotion_price = $product->price;
 		}
@@ -42,7 +23,7 @@ class Cart{
 			'qty'=> 0, 
 			'price' => 0, 
 			'promotionPrice'=>0, 
-			'item' => null
+			'item' => $product
 		]; 
 		if($this->items){
 			if(array_key_exists($product->id, $this->items)){
