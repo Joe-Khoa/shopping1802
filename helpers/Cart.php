@@ -1,44 +1,63 @@
 <?php
 class Cart{
-	public $items = []; 
-	public $totalQty = 0;	 
-	public $totalPrice = 0;
-	public $promtPrice = 0; 
+
+	public $items = []; // all products in cart
+	public $totalQty = 0;	 // tong so luong
+	public $totalPrice = 0; // 200 => 0 
+	public $promtPrice = 0;	// 200
+
 	public function __construct($oldCart=null){
-		if($oldCart){
+		if($oldCart!=null){
 			$this->items = $oldCart->items;
 			$this->totalQty = $oldCart->totalQty;
 			$this->totalPrice = $oldCart->totalPrice;
 			$this->promtPrice = $oldCart->promtPrice;
 		}
 	}
-	
-	public function add($item, $qty=1){ 
-		if($item->promotion_price == 0){
-			$item->promotion_price = $item->price;
+	/**
+	 * totalQty: 3,
+	 * totalPrice: 60,
+	 * promtPrice: 56,
+	 * items [
+	 * 		8=>[
+	 * 				qty: 1,
+	 * 				price: 20,
+	 * 				promotionPrice: 20,
+	 * 				item: {name, image, id = 8....}
+	 * 		],
+	 * 		10=>[
+	 * 				qty: 2,
+	 * 				price: 40,
+	 * 				promotionPrice: 36 = 18*2,
+	 * 				item: {price: 20, promotion_price: 18, image, id=10....}
+	 * 		],
+	 * 	
+	 * ]
+	 */
+	public function add($product, $qty=1){ 
+		if($product->promotion_price == 0){
+			$product->promotion_price = $product->price;
 		}
 		$giohang = [
 			'qty'=> 0, 
-			'price' => $item->price, 
-			'promotionPrice'=>$item->promotion_price, 
-			'item' => $item
+			'price' => 0, 
+			'promotionPrice'=>0, 
+			'item' => null
 		]; 
-		
 		if($this->items){
-			if(array_key_exists($item->id, $this->items)){
-				$giohang = $this->items[$item->id];
+			if(array_key_exists($product->id, $this->items)){
+				$giohang = $this->items[$product->id];
 			}
-        }
+    }
         
 		$giohang['qty'] =  $giohang['qty'] + $qty;
-		$giohang['price'] = $item->price * $giohang['qty'];
-		$giohang['promotionPrice'] = $item->promotion_price * $giohang['qty'];
-		$this->items[$item->id] = $giohang;
+		$giohang['price'] = $product->price * $giohang['qty'];
+		$giohang['promotionPrice'] = $product->promotion_price * $giohang['qty'];
+		$this->items[$product->id] = $giohang;
 		
 		$this->totalQty = $this->totalQty + $qty;
 		$this->totalPrice = $this->totalPrice + $qty*$giohang['item']->price;
 		$this->promtPrice = $this->promtPrice + $qty*$giohang['item']->promotion_price;
-		
 	}
 	
 	//update
