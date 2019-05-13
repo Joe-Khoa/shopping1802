@@ -29,7 +29,7 @@
                               <img height="200px" class="hover-img" src="public/products/<?=$product->image?>" alt="<?=$product->name?>">
                             </figure>
                           </a>
-                          <button type="button" class="add-to-cart-mt">
+                          <button type="button" class="add-to-cart-mt" data-id="<?=$product->id?>">
                             <i class="fa fa-shopping-cart"></i>
                             <span> Chọn Mua</span>
                           </button>

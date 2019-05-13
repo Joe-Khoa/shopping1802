@@ -294,11 +294,13 @@
   <script>
     $('.add-to-cart-mt').click(function(){
         var id = $(this).attr('data-id')
+        var qty = 1;
         $.ajax({
           url: 'cart.php',
           type: 'POST',
           data: { 
             id: id,
+            qty: qty,
             action: 'add'
           },
           dataType: 'json',

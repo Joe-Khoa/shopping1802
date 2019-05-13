@@ -26,7 +26,8 @@ class ShoppingCartController extends Controller{
         //add to cart
         $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
         $cart = new Cart($oldCart);
-        $cart->add($product,1);
+        $qty = isset($_POST['qty']) ? (int)$_POST['qty'] : 1;
+        $cart->add($product,$qty);
         $_SESSION['cart'] = $cart;
         $r = [
             'error'=> 0,
