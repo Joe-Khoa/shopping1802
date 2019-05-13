@@ -1,4 +1,4 @@
-
+<?php //print_r($data['cart']->items);die;?>
 <!-- Main Container -->
  <section class="main-container col1-layout">
     <div class="main container">
@@ -16,8 +16,7 @@
                   <thead>
                     <tr>
                       <th class="cart_product">Product</th>
-                      <th>Description</th>
-                      <th>Avail.</th>
+                      <th>Name</th>
                       <th>Unit price</th>
                       <th>Qty</th>
                       <th>Total</th>
@@ -28,27 +27,43 @@
                     <?php 
                     foreach($data['cart']->items as $product):?>
                     <tr>
-                      <td class="cart_product"><a href="#"><img src="public/images/products/img01.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Red</a></small><br>
-                        <small><a href="#">Size : M</a></small></td>
-                      <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="1"></td>
-                      <td class="price"><span>$49.88</span></td>
+                      <td class="cart_product"><a href="#"><img src="public/products/<?=$product['item']->image?>" alt="Product"></a></td>
+                      <td class="cart_description"><p class="product-name"><a href="#">
+                        <?=$product['item']->name?>
+                      </a></p>
+                      <td class="price"><span>
+                        <?php
+                          if($product['item']->price == $product['item']->promotion_price)
+                          echo number_format($product['item']->price);
+                          else 
+                          {
+                            echo '<del style="color:#000" >'.number_format($product['item']->price).'</del>';
+                            echo '<br>';
+                            echo number_format($product['item']->promotion_price);
+                          }
+                        ?>
+                      </span></td>
+                      <td class="qty"><input class="form-control input-sm" type="text" value="<?=$product['qty']?>"></td>
+                      <td class="price"><span>
+                        <?=number_format($product['promotionPrice'])?>
+                      </span></td>
                       <td class="action"><a href="#"><i class="icon-close"></i></a></td>
                     </tr>
                     <?php endforeach?>
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colspan="2" rowspan="2"></td>
-                      <td colspan="3">Total products (tax incl.)</td>
-                      <td colspan="2">$237.88 </td>
+                      <td colspan="2" rowspan="3"></td>
+                      <td colspan="3">Price</td>
+                      <td colspan="2"><?=number_format($data['cart']->totalPrice)?></td>
                     </tr>
                     <tr>
-                      <td colspan="3"><strong>Total</strong></td>
-                      <td colspan="2"><strong>$237.88 </strong></td>
+                      <td colspan="3">Off</td>
+                      <td colspan="2">-<?=number_format($data['cart']->totalPrice-$data['cart']->promtPrice)?></td>
+                    </tr>
+                    <tr>
+                      <td colspan="3"><strong>Promotion price</strong></td>
+                      <td colspan="2"><strong><?=number_format($data['cart']->promtPrice)?></strong></td>
                     </tr>
                   </tfoot>
                 </table>
