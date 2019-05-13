@@ -6,7 +6,10 @@ require_once 'helpers/Cart.php';
 
 class ShoppingCartController extends Controller{
     function getShoppingCartView(){
-        return parent::loadView('shopping-cart');
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        $data = [ 'cart' => $cart ];
+        return parent::loadView('shopping-cart', 'Giỏ hàng',$data);
     }
     function getCheckoutView(){
         return parent::loadView('checkout');
