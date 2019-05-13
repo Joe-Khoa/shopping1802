@@ -30,7 +30,10 @@ class ShoppingCartController extends Controller{
         $_SESSION['cart'] = $cart;
         $r = [
             'error'=> 0,
-            'data'=> $cart,
+            'data'=> [
+                'cart'=>$cart,
+                'product_name'=>$product->name
+            ],
             'message'=>'Add to cart successfully!'
         ];
         echo json_encode($r);

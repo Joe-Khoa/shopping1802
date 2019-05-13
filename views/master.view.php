@@ -225,6 +225,19 @@
     <a href="#" class="totop"> </a>
     <!-- End Footer -->
 
+    <div class="modal" id="messageCart" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <p id="my_message">....</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
   <!-- JS -->
   <!-- bootstrap js -->
@@ -288,7 +301,14 @@
           },
           dataType: 'json',
           success: function(response){
+            // response: obj
             console.log(response)
+            if(response.error==0){
+              var productName = '<b>'+response.data.product_name+'</b>';
+              $('#my_message').html(productName+' đã thêm vào giỏ hàng.')
+              $('#messageCart').modal('show');
+            }
+            
           },
           error: function(error){
             console.log(error)
