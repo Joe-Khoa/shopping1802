@@ -126,7 +126,7 @@
                       </div>
                       <div class="shoppingcart-inner hidden-xs">
                         <span class="cart-title">Shopping Cart</span>
-                        <span class="cart-total">4 Item(s): $520.00</span>
+                        <span class="cart-total"><?=$totalItemCart?> Item(s)</span>
                       </div>
                     </a>
                   </div>
@@ -310,7 +310,7 @@
               // $('#my_message').html(response.message)
               $('#my_message').html('Vui lòng thử lại');
             }
-            $('#messageCart').modal('show');
+            $('#messageCart').modal('show');$
           },
           error: function(error){
             console.log(error)

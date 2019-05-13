@@ -2,7 +2,7 @@
 require_once 'Controller.php';
 require_once 'models/ShoppingCartModel.php';
 require_once 'helpers/Cart.php';
-session_start();
+// session_start();
 
 class ShoppingCartController extends Controller{
     function getShoppingCartView(){
