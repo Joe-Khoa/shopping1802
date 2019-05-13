@@ -302,13 +302,15 @@
           dataType: 'json',
           success: function(response){
             // response: obj
-            console.log(response)
             if(response.error==0){
               var productName = '<b>'+response.data.product_name+'</b>';
               $('#my_message').html(productName+' đã thêm vào giỏ hàng.')
-              $('#messageCart').modal('show');
             }
-            
+            else{
+              // $('#my_message').html(response.message)
+              $('#my_message').html('Vui lòng thử lại');
+            }
+            $('#messageCart').modal('show');
           },
           error: function(error){
             console.log(error)
