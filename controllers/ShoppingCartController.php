@@ -44,7 +44,21 @@ class ShoppingCartController extends Controller{
         return true;
     }
     function deleteCart($id){
-        echo $id;
+        if(isset($_SESSION['cart']) && $_SESSION['cart']->totalQty > 0){
+            $oldCart = $_SESSION['cart'];
+
+            $cart = new Cart($oldCart);
+            $cart->removeItem($id);
+            $_SESSION['cart'] = $cart;
+        }
+        else{
+            $r = [
+                'error'=> 1,
+                'data'=> null,
+                'message'=>'Cannot delete (Cart is empty)'
+            ];
+            echo json_encode($r);
+        }
     }
 }
 /**
