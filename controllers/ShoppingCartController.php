@@ -46,10 +46,26 @@ class ShoppingCartController extends Controller{
     function deleteCart($id){
         if(isset($_SESSION['cart']) && $_SESSION['cart']->totalQty > 0){
             $oldCart = $_SESSION['cart'];
-
-            $cart = new Cart($oldCart);
-            $cart->removeItem($id);
-            $_SESSION['cart'] = $cart;
+            //kiem tra id co exist trong cart
+            if(array_key_exists($id, $oldCart->items)){
+                $cart = new Cart($oldCart);
+                $cart->removeItem($id);
+                $_SESSION['cart'] = $cart;
+                return $r = [
+                    'error'=> 0,
+                    'data'=> $cart,
+                    'message'=>'Deleted!'
+                ];
+                echo json_encode($r);
+            }
+            else{
+                $r = [
+                    'error'=> 1,
+                    'data'=> null,
+                    'message'=>'Cannot find id product'
+                ];
+                echo json_encode($r);
+            }
         }
         else{
             $r = [
