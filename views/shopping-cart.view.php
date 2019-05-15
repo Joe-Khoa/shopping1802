@@ -65,15 +65,15 @@
                       <tr>
                         <td colspan="2" rowspan="3"></td>
                         <td colspan="3">Tổng tiền</td>
-                        <td colspan="2"><?=number_format($data['cart']->totalPrice)?></td>
+                        <td colspan="2" class="totalPrice" ><?=number_format($data['cart']->totalPrice)?></td>
                       </tr>
                       <tr>
                         <td colspan="3">Giảm giá</td>
-                        <td colspan="2"><?=number_format($data['cart']->promtPrice-$data['cart']->totalPrice)?></td>
+                        <td colspan="2" class="selloff"><?=number_format($data['cart']->promtPrice-$data['cart']->totalPrice)?></td>
                       </tr>
                       <tr>
                         <td colspan="3"><strong>Tổng tiền thanh toán</strong></td>
-                        <td colspan="2"><strong><?=number_format($data['cart']->promtPrice)?></strong></td>
+                        <td colspan="2" class="promtPrice"><strong><?=number_format($data['cart']->promtPrice)?></strong></td>
                       </tr>
                     </tfoot>
                   </table>
@@ -103,6 +103,10 @@
           success: function(res){
             if(res.error==1) alert(res.message)
             else{
+              // console.log(res)
+              $('.totalPrice').text(res.data.totalPrice)
+              $('.selloff').text(res.data.sellOff)
+              $('.promtPrice').text(res.data.promtPrice)
               $('.product-info-'+idProduct).hide(500)
             }
           }

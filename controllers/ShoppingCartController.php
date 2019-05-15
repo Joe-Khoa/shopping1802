@@ -53,7 +53,12 @@ class ShoppingCartController extends Controller{
                 $_SESSION['cart'] = $cart;
                 $r = [
                     'error'=> 0,
-                    'data'=> $cart,
+                    'data'=> [
+                        'totalPrice'=> number_format($cart->totalPrice),
+                        'promtPrice'=> number_format($cart->promtPrice),
+                        'sellOff'=> number_format($cart->promtPrice-$cart->totalPrice),
+                        'cart'=>$cart
+                    ],
                     'message'=>'Deleted!'
                 ];
                 echo json_encode($r);
