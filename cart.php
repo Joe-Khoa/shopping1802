@@ -11,7 +11,7 @@ if( isset($_POST['id']) &&
 }
 if(isset($_POST['id']) && isset($_POST['action']) && $_POST['action']=='delete' ){
     //delete cart
-    return $c->deleteCart();
+    return $c->deleteCart($_POST['id']);
 }
 
 ?>

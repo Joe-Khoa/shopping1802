@@ -53,7 +53,9 @@
                         </span></td>
 
                         <td class="action">
-                          <a href="#" data-id="<?=$idProduct?>"><i class="icon-close"></i></a>
+                          <a data-id="<?=$idProduct?>">
+                            <i class="icon-close"></i>
+                          </a>
                         </td>
                       </tr>
                       <?php endforeach?>
@@ -86,3 +88,19 @@
       </div>
     </div>
   </section>
+  <script>
+    $('.action a').click(function(){
+        var idProduct = $(this).attr('data-id')
+        $.ajax({
+          url: 'cart.php',
+          type: 'POST',
+          data: {
+            id: idProduct,
+            action: 'delete'
+          },
+          success: function(res){
+            console.log(res)
+          }
+        })
+    })
+  </script>

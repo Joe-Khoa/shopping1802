@@ -43,8 +43,8 @@ class ShoppingCartController extends Controller{
         echo json_encode($r);
         return true;
     }
-    function deleteCart(){
-
+    function deleteCart($id){
+        echo $id;
     }
 }
 /**
