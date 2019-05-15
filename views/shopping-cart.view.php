@@ -12,7 +12,7 @@
             <div class="order-detail-content">
               <?php if($data['cart']->totalQty==0):?>
                 <p class="text-center">Giỏ hàng rỗng, vui lòng mua hàng</p>
-                <div class="cart_navigation "> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Tiếp tục mua sắm</a>
+                <div class="cart_navigation" style="text-align: center;"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Tiếp tục mua hàng</a>
 
               <?php else:  ?>
                 <div class="table-responsive">
@@ -58,15 +58,15 @@
                     <tfoot>
                       <tr>
                         <td colspan="2" rowspan="3"></td>
-                        <td colspan="3">Price</td>
+                        <td colspan="3">Tổng tiền</td>
                         <td colspan="2"><?=number_format($data['cart']->totalPrice)?></td>
                       </tr>
                       <tr>
-                        <td colspan="3">Off</td>
+                        <td colspan="3">Giảm giá</td>
                         <td colspan="2"><?=number_format($data['cart']->promtPrice-$data['cart']->totalPrice)?></td>
                       </tr>
                       <tr>
-                        <td colspan="3"><strong>Promotion price</strong></td>
+                        <td colspan="3"><strong>Tổng tiền thanh toán</strong></td>
                         <td colspan="2"><strong><?=number_format($data['cart']->promtPrice)?></strong></td>
                       </tr>
                     </tfoot>

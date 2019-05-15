@@ -119,8 +119,8 @@
             <div class="col-lg-3 col-xs-3 top-cart">
               <div class="top-cart-contain">
                 <div class="mini-cart">
-                  <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
-                    <a href="#">
+                  <div class="basket dropdown-toggle">
+                    <a href="gio-hang.html">
                       <div class="cart-icon">
                         <i class="fa fa-shopping-cart"></i>
                       </div>
@@ -308,7 +308,7 @@
             // response: obj
             if(response.error==0){
               var productName = '<b>'+response.data.product_name+'</b>';
-              $('#my_message').html(productName+' đã thêm vào giỏ hàng.')
+              $('#my_message').html(productName+' đã thêm vào giỏ hàng. <p><a href="gio-hang.html">Xem giỏ hàng</a></p>')
               var totalItemCart = $('#totalItemCart').text()
               $('#totalItemCart').text(parseInt(totalItemCart)+1)
             }
