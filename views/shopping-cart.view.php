@@ -30,7 +30,8 @@
                     <tbody>
                       <?php 
                       foreach($data['cart']->items as $idProduct => $product):?>
-                      <tr>
+                      <tr 
+                      class="product-info-<?=$idProduct?>">
                         <td class="cart_product"><a href="#"><img src="public/products/<?=$product['item']->image?>" alt="Product"></a></td>
                         <td class="cart_description"><p class="product-name"><a href="#">
                           <?=$product['item']->name?>
@@ -100,7 +101,10 @@
           },
           dataType: 'JSON',
           success: function(res){
-            console.log(res)
+            if(res.error==1) alert(res.message)
+            else{
+              $('.product-info-'+idProduct).hide(500)
+            }
           }
         })
     })
