@@ -106,7 +106,7 @@
               // console.log(res)
               $('.totalPrice').text(res.data.totalPrice)
               $('.selloff').text(res.data.sellOff)
-              $('.promtPrice').text(res.data.promtPrice)
+              $('.promtPrice').html("<b style='color:#ff6e1f'>"+res.data.promtPrice+"</b>")
               $('.product-info-'+idProduct).hide(500)
             }
           }
