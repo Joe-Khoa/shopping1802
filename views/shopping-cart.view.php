@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                       <?php 
-                      foreach($data['cart']->items as $product):?>
+                      foreach($data['cart']->items as $idProduct => $product):?>
                       <tr>
                         <td class="cart_product"><a href="#"><img src="public/products/<?=$product['item']->image?>" alt="Product"></a></td>
                         <td class="cart_description"><p class="product-name"><a href="#">
@@ -51,7 +51,10 @@
                         <td class="price"><span>
                           <?=number_format($product['promotionPrice'])?>
                         </span></td>
-                        <td class="action"><a href="#"><i class="icon-close"></i></a></td>
+
+                        <td class="action">
+                          <a href="#" data-id="<?=$idProduct?>"><i class="icon-close"></i></a>
+                        </td>
                       </tr>
                       <?php endforeach?>
                     </tbody>
