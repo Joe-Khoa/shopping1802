@@ -51,7 +51,7 @@ class ShoppingCartController extends Controller{
                 $cart = new Cart($oldCart);
                 $cart->removeItem($id);
                 $_SESSION['cart'] = $cart;
-                return $r = [
+                $r = [
                     'error'=> 0,
                     'data'=> $cart,
                     'message'=>'Deleted!'

@@ -98,6 +98,7 @@
             id: idProduct,
             action: 'delete'
           },
+          dataType: 'JSON',
           success: function(res){
             console.log(res)
           }
