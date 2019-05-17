@@ -81,6 +81,9 @@ class ShoppingCartController extends Controller{
             echo json_encode($r);
         }
     }
+    function updateCart($id, $qty){
+
+    }
 }
 /**
  * Cart Object
