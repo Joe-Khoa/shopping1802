@@ -48,7 +48,10 @@
                             }
                           ?>
                         </span></td>
-                        <td class="qty"><input class="form-control input-sm" type="text" value="<?=$product['qty']?>"></td>
+                        <td class="qty">
+                          <input style="width: 60%;float: left" class="form-control input-sm" type="text" value="<?=$product['qty']?>">
+                          <i style="width: 40%;float: left;line-height: 30px"  class="fa fa-edit"></i>
+                        </td>
                         <td class="price"><span>
                           <?=number_format($product['promotionPrice'])?>
                         </span></td>
