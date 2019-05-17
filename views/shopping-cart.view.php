@@ -49,8 +49,10 @@
                           ?>
                         </span></td>
                         <td class="qty">
-                          <input style="width: 60%;float: left" class="form-control input-sm" type="text" value="<?=$product['qty']?>">
-                          <i style="width: 40%;float: left;line-height: 30px"  class="fa fa-edit"></i>
+                          <input style="width: 60%;float: left" class="form-control input-sm txtQty-<?=$idProduct?> " type="text" value="<?=$product['qty']?>">
+                          <i title="Edit" style="width: 40%;float: left;line-height: 30px"  class="fa fa-edit edit-cart" 
+                          data-id="<?=$idProduct?>"
+                          ></i>
                         </td>
                         <td class="price"><span>
                           <?=number_format($product['promotionPrice'])?>
@@ -114,5 +116,10 @@
             }
           }
         })
+    })
+    $('.edit-cart').click(function(){
+      var idProduct = $(this).attr('data-id')
+      var qty = $('.txtQty-'+idProduct).val()
+      console.log(idProduct, qty);
     })
   </script>
