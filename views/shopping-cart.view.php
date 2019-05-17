@@ -118,7 +118,7 @@
         })
     })
     $('.edit-cart').click(function(){
-      var idProduct = $(this).attr('data-id')
+        var idProduct = $(this).attr('data-id')
       var qty = $('.txtQty-'+idProduct).val()
       $.ajax({
         url: 'cart.php',

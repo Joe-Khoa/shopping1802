@@ -82,7 +82,32 @@ class ShoppingCartController extends Controller{
         }
     }
     function updateCart($id, $qty){
-
+        $model = new ShoppingCartModel;
+        $product = $model->findProductById($id);
+        if(!$product){
+            $r = [
+                'error'=> 1,
+                'data'=> null,
+                'message'=>'Cannot find product!'
+            ];
+            echo json_encode($r);
+            return false;
+        }
+        $oldCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : null;
+        $cart = new Cart($oldCart);
+        $cart->update($product, $qty);
+        $_SESSION['cart'] = $cart;
+        $r = [
+            'error'=> 0,
+            'data'=> [
+                'totalPrice'=> number_format($cart->totalPrice),
+                'promtPrice'=> number_format($cart->promtPrice),
+                'sellOff'=> number_format($cart->promtPrice-$cart->totalPrice),
+                'cart'=>$cart
+            ],
+            'message'=>'Success!'
+        ];
+        echo json_encode($r);
     }
 }
 /**
