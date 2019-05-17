@@ -120,6 +120,18 @@
     $('.edit-cart').click(function(){
       var idProduct = $(this).attr('data-id')
       var qty = $('.txtQty-'+idProduct).val()
-      console.log(idProduct, qty);
+      $.ajax({
+        url: 'cart.php',
+        type: 'POST',
+        data: {
+          id: idProduct,
+          qty: qty,
+          action: 'update'
+        },
+        dataType: 'JSON',
+        success:function(res){
+          console.log(res)
+        }
+      })
     })
   </script>

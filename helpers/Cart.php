@@ -66,7 +66,7 @@ class Cart{
 		$this->totalQty = $this->totalQty + $qty;
 		$this->totalPrice = $this->totalPrice + $giohang['price'];
 		$this->promtPrice = $this->promtPrice + $giohang['promotionPrice'];
-  }
+  	}
 		
 		
 	//giam so luong mua di 1
