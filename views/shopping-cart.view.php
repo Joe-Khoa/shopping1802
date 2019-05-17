@@ -87,7 +87,7 @@
                 </div>
               
                 <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Tiếp tục mua sắm</a> 
-                <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Thanh toán</a> 
+                <a class="checkout-btn" href="thanh-toan.html"><i class="fa fa-check"></i> Thanh toán</a> 
               <?php endif?>
             </div>
             </div>

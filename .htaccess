@@ -9,6 +9,7 @@ RewriteRule ^lien-he.html$ contact.php
 RewriteRule ^home$ index.php
 RewriteRule ^404.html$ 404.error.php
 RewriteRule ^gio-hang.html$ shopping-cart.php
+RewriteRule ^thanh-toan.html$ checkout.php
 
 
 ErrorDocument 404 /shopping1802/404.error.php
