@@ -130,7 +130,9 @@
         },
         dataType: 'JSON',
         success:function(res){
-          console.log(res)
+          $('.totalPrice').text(res.data.totalPrice)
+          $('.selloff').text(res.data.sellOff)
+          $('.promtPrice').html("<b style='color:#ff6e1f'>"+res.data.promtPrice+"</b>")
         }
       })
     })

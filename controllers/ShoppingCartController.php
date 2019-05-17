@@ -110,51 +110,5 @@ class ShoppingCartController extends Controller{
         echo json_encode($r);
     }
 }
-/**
- * Cart Object
-(
-    [items] => Array
-        (
-            [105] => Array
-                (
-                    [qty] => 2
-                    [price] => 59800000
-                    [promotionPrice] => 58000000
-                    [item] => stdClass Object
-                        (
-                            [id] => 105
-                            [name] => iPhone X 64GB Gray
-                            [image] => d1OlStyng8-img_2425_copy_master.JPG
-                            [price] => 29900000
-                            [promotion_price] => 29000000
-                        )
-
-                )
-
-            [100] => Array
-                (
-                    [qty] => 1
-                    [price] => 39500000
-                    [promotionPrice] => 39500000
-                    [item] => stdClass Object
-                        (
-                            [id] => 100
-                            [name] => MPXV2 -Macbook Pro Retina 2017 13 inch 256GB TouchBar ( Gray Space )
-                            [image] => mpxv2--macbook-pro-retina-2017-13-inch-256gb-touchbar-(-gray-space-).png
-                            [price] => 39500000
-                            [promotion_price] => 39500000
-                        )
-
-                )
-
-        )
-
-    [totalQty] => 3
-    [totalPrice] => 99300000
-    [promtPrice] => 97500000
-)
-
- */
-
 
 ?>
