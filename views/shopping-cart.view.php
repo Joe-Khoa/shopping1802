@@ -54,9 +54,11 @@
                           data-id="<?=$idProduct?>"
                           ></i>
                         </td>
-                        <td class="price"><span>
-                          <?=number_format($product['promotionPrice'])?>
-                        </span></td>
+                        <td class="price">
+                          <span class="promotionPrice-<?=$idProduct?>">
+                            <?=number_format($product['promotionPrice'])?>
+                          </span>
+                        </td>
 
                         <td class="action">
                           <a data-id="<?=$idProduct?>">
@@ -108,7 +110,6 @@
           success: function(res){
             if(res.error==1) alert(res.message)
             else{
-              // console.log(res)
               $('.totalPrice').text(res.data.totalPrice)
               $('.selloff').text(res.data.sellOff)
               $('.promtPrice').html("<b style='color:#ff6e1f'>"+res.data.promtPrice+"</b>")
@@ -130,6 +131,7 @@
         },
         dataType: 'JSON',
         success:function(res){
+          $('.promotionPrice-'+idProduct).text(res.data.itemUpdate)
           $('.totalPrice').text(res.data.totalPrice)
           $('.selloff').text(res.data.sellOff)
           $('.promtPrice').html("<b style='color:#ff6e1f'>"+res.data.promtPrice+"</b>")

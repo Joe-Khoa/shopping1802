@@ -100,6 +100,7 @@ class ShoppingCartController extends Controller{
         $r = [
             'error'=> 0,
             'data'=> [
+                'itemUpdate'=>number_format($cart->items[$id]['promotionPrice']),
                 'totalPrice'=> number_format($cart->totalPrice),
                 'promtPrice'=> number_format($cart->promtPrice),
                 'sellOff'=> number_format($cart->promtPrice-$cart->totalPrice),
