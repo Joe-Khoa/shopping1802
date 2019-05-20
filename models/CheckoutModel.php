@@ -18,6 +18,11 @@ class CheckoutModel extends DBConnect{
     }
 
     // insert bill detail
+    function insertBillDetail($idBill, $idProduct, $quantity, $price, $discountPrice){
+        $sql = "INSERT INTO bill_detail(id_bill, id_product, quantity, price, discount_price)
+        VALUES($idBill, $idProduct, $quantity, $price, $discountPrice)";
+        return $this->executeQuery($sql);
+    }
 }
 
 
