@@ -6,6 +6,20 @@
           <div class="page-title">
             <h2>Thanh toán</h2>
           </div>
+          <?php if(isset($_SESSION['error_checkout'])):?>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <div class="alert alert-danger">
+                  <div class="text-center">
+                    <p><?php
+                    echo $_SESSION['error_checkout'];
+                    unset($_SESSION['error_checkout']);
+                    ?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endif?>
           <div class="box-border">
             <form method="post">
               <div class="col-sm-6">

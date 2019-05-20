@@ -1,5 +1,5 @@
 <?php
-require 'DBConnect.php';
+require_once 'DBConnect.php';
 
 class CheckoutModel extends DBConnect{
     // insert customer

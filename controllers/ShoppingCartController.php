@@ -2,6 +2,7 @@
 require_once 'Controller.php';
 require_once 'models/ShoppingCartModel.php';
 require_once 'helpers/Cart.php';
+require_once 'models/CheckoutModel.php';
 // session_start();
 
 class ShoppingCartController extends Controller{
@@ -112,7 +113,20 @@ class ShoppingCartController extends Controller{
     }
 
     function postCheckout(){
-        echo $_POST['txtName'];
+        $name = $_POST['txtName'];
+        $email = $_POST['txtEmail'];
+        $gender = $_POST['gender'];
+        $address = $_POST['txtAddress'];
+        $phone = $_POST['txtPhone'];
+        $paymentMethod = $_POST['payment_method'];
+        $note = $_POST['txtNote'];
+        $model = new CheckoutModel();
+        $idCustomer = $model->insertCustomer($name, $gender, $email, $phone, $address);
+        if(!$idCustomer) {
+            $_SESSION['error_checkout'] = "Vui lòng thử lại";
+            header('Location: thanh-toan.html');
+        }
+        else echo $idCustomer;
     }
 }
 
