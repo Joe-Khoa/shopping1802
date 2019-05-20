@@ -4,7 +4,9 @@ require_once 'helpers/Cart.php';
 session_start();
 
 class Controller{
-
+    function __construct(){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+    }
     public function loadView(string $view="index", string $title='Home', array $data=[]){
         if(isset($_SESSION['cart'])){
             $oldCart = $_SESSION['cart'];

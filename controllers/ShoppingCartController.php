@@ -126,7 +126,20 @@ class ShoppingCartController extends Controller{
             $_SESSION['error_checkout'] = "Vui lòng thử lại";
             header('Location: thanh-toan.html');
         }
-        else echo $idCustomer;
+        else{
+            $cart = $_SESSION['cart'];
+            $total = $cart->totalPrice; 
+            $promtPrice = $cart->promtPrice;
+            $dateOrder = date('Y-m-d',time());
+            $token = ''; // not yet
+            $tokenDate = date('Y-m-d H:i:s',time());
+            $idBill = $model->insertBill($idCustomer, $dateOrder, $total, $promtPrice, $paymentMethod, $note, $token, $tokenDate);
+            if(!$idBill ) {
+                $_SESSION['error_checkout'] = "Vui lòng thử lại";
+                header('Location: thanh-toan.html');
+            }
+            else echo $idBill;
+        }
     }
 }
 
