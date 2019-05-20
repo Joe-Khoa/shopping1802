@@ -110,6 +110,10 @@ class ShoppingCartController extends Controller{
         ];
         echo json_encode($r);
     }
+
+    function postCheckout(){
+        echo $_POST['txtName'];
+    }
 }
 
 ?>

@@ -10,12 +10,12 @@
             <form method="post">
               <div class="col-sm-6">
                 <label for="first_name" class="required">Họ tên</label>
-                <input type="text" class="input form-control" name="" id="first_name">
+                <input type="text" class="input form-control" name="txtName" id="first_name">
               </div>
               <!--/ [col] -->
               <div class="col-sm-6">
                 <label for="email_address" class="required">Email Address</label>
-                <input type="text" class="input form-control" name="" id="email_address">
+                <input type="text" class="input form-control" name="txtEmail" id="email_address">
               </div>
               <!--/ [col] -->
               <div class="col-sm-6">
@@ -34,13 +34,13 @@
               <div class="col-sm-6">
 
                 <label for="city" class="required">Địa chỉ</label>
-                <input class="input form-control" type="text" name="" id="city">
+                <input class="input form-control" type="text" name="txtAddress" id="city">
 
               </div>
               <!--/ [col] -->
               <div class="col-sm-6">
-                <label for="telephone" class="required">Telephone</label>
-                <input class="input form-control" type="text" name="" id="telephone">
+                <label for="telephone" class="required">Phone</label>
+                <input class="input form-control" type="text" name="txtPhone" id="telephone">
               </div>
               <!--/ [col] -->
               <div class="col-sm-6">
@@ -54,7 +54,7 @@
               <!--/ [col] -->
               <div class="col-sm-12">
                 <label class="required">Ghi chú</label>
-                <textarea rows="5" class="form-control" type="text" name=""></textarea>
+                <textarea rows="5" class="form-control" type="text" name="txtNote"></textarea>
               </div>
               <!--/ [col] -->
 
