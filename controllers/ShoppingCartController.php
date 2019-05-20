@@ -131,6 +131,8 @@ class ShoppingCartController extends Controller{
             $total = $cart->totalPrice; 
             $promtPrice = $cart->promtPrice;
             $dateOrder = date('Y-m-d',time());
+            // viet function random string
+            // rand()
             $token = ''; // not yet
             $tokenDate = date('Y-m-d H:i:s',time());
             $idBill = $model->insertBill($idCustomer, $dateOrder, $total, $promtPrice, $paymentMethod, $note, $token, $tokenDate);
@@ -138,7 +140,11 @@ class ShoppingCartController extends Controller{
                 $_SESSION['error_checkout'] = "Vui lòng thử lại";
                 header('Location: thanh-toan.html');
             }
-            else echo $idBill;
+            else{
+                // insert bill detail
+                // gui mail
+                echo $idBill;
+            }
         }
     }
 }
