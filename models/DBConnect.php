@@ -52,6 +52,9 @@ class DBConnect{
         $this->executeQuery($sql,$values);
         return $this->stmt->fetchAll(PDO::FETCH_OBJ);
     }
+    function getIDInserted(){
+        return $this->stmt->lastInsertId();
+    }
 }
 
 
