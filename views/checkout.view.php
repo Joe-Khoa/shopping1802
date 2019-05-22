@@ -20,6 +20,20 @@
               </div>
             </div>
           <?php endif?>
+          <?php if(isset($_SESSION['success_checkout'])):?>
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4">
+                <div class="alert alert-success">
+                  <div class="text-center">
+                    <p><?php
+                    echo $_SESSION['success_checkout'];
+                    unset($_SESSION['success_checkout']);
+                    ?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <?php endif?>
           <div class="box-border">
             <form method="post">
               <div class="col-sm-6">

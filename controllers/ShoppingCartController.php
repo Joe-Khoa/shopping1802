@@ -114,6 +114,8 @@ class ShoppingCartController extends Controller{
     }
 
     function postCheckout(){
+        // check all input must have value
+        // validators input
         $name = $_POST['txtName'];
         $email = $_POST['txtEmail'];
         $gender = $_POST['gender'];
@@ -133,8 +135,7 @@ class ShoppingCartController extends Controller{
             $promtPrice = $cart->promtPrice;
             $dateOrder = date('Y-m-d',time());
             
-            $h = new Helpers;
-            $token = ''; // not yet
+            $token = Helpers::createTokenString();
             $tokenDate = date('Y-m-d H:i:s',time());
             $idBill = $model->insertBill($idCustomer, $dateOrder, $total, $promtPrice, $paymentMethod, $note, $token, $tokenDate);
             if(!$idBill ) {
@@ -142,9 +143,18 @@ class ShoppingCartController extends Controller{
                 header('Location: thanh-toan.html');
             }
             else{
-                // insert bill detail
+                foreach($cart->items 
+                as $idProduct => $product){
+                    // insert bill detail
+                    $quantity = $product['qty'];
+                    $price = $product['price'];
+                    $discountPrice = $product['promotionPrice'];
+
+                    $model->insertBillDetail($idBill, $idProduct, $quantity, $price, $discountPrice);
+                }
                 // gui mail
-                echo $idBill;
+                $_SESSION['success_checkout'] = "Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn sau ít phút...";
+                header('Location: thanh-toan.html');
             }
         }
     }
