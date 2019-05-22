@@ -4,6 +4,8 @@ require_once 'models/ShoppingCartModel.php';
 require_once 'helpers/Cart.php';
 require_once 'models/CheckoutModel.php';
 require_once 'helpers/Helpers.php';
+require_once 'helpers/PHPMailer/mailer.php';
+
 // session_start();
 
 class ShoppingCartController extends Controller{
@@ -152,9 +154,22 @@ class ShoppingCartController extends Controller{
 
                     $model->insertBillDetail($idBill, $idProduct, $quantity, $price, $discountPrice);
                 }
-                // gui mail
-                $_SESSION['success_checkout'] = "Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn sau ít phút...";
-                header('Location: thanh-toan.html');
+                // gui mail xac nhan don hang
+                $contentMail = "<p>Dear $name,</p>
+                <p>Cảm ơn bạn đã đătj hàng trên hệ thống của chúng tôi....</p>
+                <p>Vui lòng nhấp vào <a href='https://www.thegioididong.com/'>liên kết sau</a> để xác nhận đơn hàng. </p>
+                <p>Thank you!</p>";
+                $subjectMail = "XÁC NHẬN ĐƠN HÀNG DH000$idBill";
+                $mailcheck = sendMail($email, $name,$contentMail,$subjectMail);
+                if($mailcheck){
+                    $_SESSION['success_checkout'] = "Đặt hàng thành công, chúng tôi sẽ liên hệ với bạn sau ít phút...";
+                    unset($_SESSION['cart']);
+                    header('Location: thanh-toan.html');
+                }
+                else{
+                    $_SESSION['error_checkout'] = "Vui lòng thử lại";
+                    header('Location: thanh-toan.html');
+                }
             }
         }
     }
