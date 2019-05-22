@@ -1,6 +1,6 @@
 <?php
 class Helpers{
-    function createTokenString(){
+    static function createTokenString(){
         $token = '';
         $initString = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGKLZXCVBNM1234567890';
         for($i = 1; $i<=40; $i++){
@@ -10,7 +10,6 @@ class Helpers{
         return $token;
     }
 }
-// $h = new Helpers;
-// echo $h->createTokenString();
+// echo Helpers::createTokenString();
 
 ?>

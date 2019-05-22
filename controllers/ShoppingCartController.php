@@ -3,6 +3,7 @@ require_once 'Controller.php';
 require_once 'models/ShoppingCartModel.php';
 require_once 'helpers/Cart.php';
 require_once 'models/CheckoutModel.php';
+require_once 'helpers/Helpers.php';
 // session_start();
 
 class ShoppingCartController extends Controller{
@@ -131,8 +132,8 @@ class ShoppingCartController extends Controller{
             $total = $cart->totalPrice; 
             $promtPrice = $cart->promtPrice;
             $dateOrder = date('Y-m-d',time());
-            // viet function random string
-            // rand()
+            
+            $h = new Helpers;
             $token = ''; // not yet
             $tokenDate = date('Y-m-d H:i:s',time());
             $idBill = $model->insertBill($idCustomer, $dateOrder, $total, $promtPrice, $paymentMethod, $note, $token, $tokenDate);
