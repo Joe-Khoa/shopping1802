@@ -12,7 +12,7 @@ class OrderModel extends DBConnect {
         $sql = "UPDATE bills
                 SET token=null,
                 token_date=null,
-                ststus = 1
+                status = 1
                 WHERE id=$id";
         return $this->executeQuery($sql);
     }
