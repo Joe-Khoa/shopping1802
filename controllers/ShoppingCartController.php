@@ -128,7 +128,7 @@ class ShoppingCartController extends Controller{
         $model = new CheckoutModel();
         $idCustomer = $model->insertCustomer($name, $gender, $email, $phone, $address);
         if(!$idCustomer) {
-            $_SESSION['error_checkout'] = "Vui lòng thử lại";
+            $_SESSION['error_checkout'] = "Vui lòng thử lại 1";
             header('Location: thanh-toan.html');
         }
         else{
@@ -141,7 +141,7 @@ class ShoppingCartController extends Controller{
             $tokenDate = date('Y-m-d H:i:s',time());
             $idBill = $model->insertBill($idCustomer, $dateOrder, $total, $promtPrice, $paymentMethod, $note, $token, $tokenDate);
             if(!$idBill ) {
-                $_SESSION['error_checkout'] = "Vui lòng thử lại";
+                $_SESSION['error_checkout'] = "Vui lòng thử lại 2";
                 header('Location: thanh-toan.html');
             }
             else{
@@ -155,9 +155,10 @@ class ShoppingCartController extends Controller{
                     $model->insertBillDetail($idBill, $idProduct, $quantity, $price, $discountPrice);
                 }
                 // gui mail xac nhan don hang
+                $link = "http://localhost/shopping1802/order/$token";
                 $contentMail = "<p>Dear $name,</p>
-                <p>Cảm ơn bạn đã đătj hàng trên hệ thống của chúng tôi....</p>
-                <p>Vui lòng nhấp vào <a href='https://www.thegioididong.com/'>liên kết sau</a> để xác nhận đơn hàng. </p>
+                <p>Cảm ơn bạn đã đặt hàng trên hệ thống của chúng tôi....</p>
+                <p>Vui lòng nhấp vào <a href='$link'>liên kết sau</a> để xác nhận đơn hàng. </p>
                 <p>Thank you!</p>";
                 $subjectMail = "XÁC NHẬN ĐƠN HÀNG DH000$idBill";
                 $mailcheck = sendMail($email, $name,$contentMail,$subjectMail);
