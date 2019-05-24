@@ -16,8 +16,17 @@ class OrderController extends Controller{
             $_SESSION['error_order'] = 'Không tìm thấy đơn hàng!';
             return $this->loadView('message', 'Thông báo');
         }
-        echo 'tim thay';
-
+        $nowTimestamps = time();
+        $billTime = strtotime($bill->token_date);
+        // quá 5 ngày ; 86400 = 24*60*60
+        if($nowTimestamps - 5*86400 <= $billTime){
+            //Chuyen sang DH da xac nhận
+            
+        }
+        else{
+            $_SESSION['error_order'] = 'Thời gian xác nhận đơn hàng đã hết hiệu lực, vui lòng tạo DH mới!';
+            return $this->loadView('message', 'Thông báo');
+        }
     }
 }
 
