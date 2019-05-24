@@ -4,6 +4,7 @@ RewriteRule ^([a-zA-Z0-9-]+)$ product-type.php?url=$1
 
 RewriteRule ^([a-zA-Z0-9-]+)/page=([0-9]+)$ product-type.php?url=$1&page=$2
 
+RewriteRule ^order/([a-zA-Z0-9-]+)$ order.check.php?token=$1
 
 RewriteRule ^lien-he.html$ contact.php
 RewriteRule ^home$ index.php
